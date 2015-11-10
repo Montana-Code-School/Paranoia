@@ -2,38 +2,38 @@
 <head>
 	<title>Create Your Game</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
-	<div class="container" id="gameMaker">
-		<form action="/api/gameRoutes" class="navbar-form" method="post" id="gameForm" role="form">
+	<div class="container-fluid row" id="gameMaker">
+		<form action="/api/gameRoutes" class="gameFields" method="post" id="gameForm" role="form">
 			<legend>Create Your Game</legend>
 
-			<div class="input-group">
+			<div class="input-group col-xs-offset-1 col-xs-10">
 				<span class="input-group-addon" id="basic-addon1">Name Your Game</span>
-				<input type="text" class="form-control" name="gameName" placeholder="Name your game">
+				<input type="text" class="form-control" name="gameName" placeholder="">
 			</div>
 		
-			<div class="input-group">
+			<div class="input-group col-xs-offset-1 col-xs-10">
 				<span class="input-group-addon" id="basic-addon1">Your Handle</span>
 				<input type="text" class="form-control" name="moderator" placeholder="">
 			</div>
-			<div class="input-group">
+			<div class="input-group col-xs-offset-1 col-xs-10">
 				<span class="input-group-addon" id="basic-addon1">Start Date</span>
-				<input type="text" class="form-control" name="startTime" placeholder="What day will the gamebegin?">
+				<input type="text" class="form-control" name="startTime" placeholder="What day will the game begin?">
 			</div>
 			
-			<div class="input-group">
+			<div class="input-group col-xs-offset-1 col-xs-10">
 				<span class="input-group-addon" id="basic-addon1">End Date</span>
-				<input type="text" class="form-control" name="endTime" placeholder="What day the game end?">
+				<input type="text" class="form-control" name="endTime" placeholder="What day will the game end?">
 			</div>
 			
-			<div class="input-group">
+			<div class="input-group col-xs-offset-1 col-xs-10">
 				<span class="input-group-addon" id="basic-addon1">Location</span>
 				<input type="text" class="form-control" name="location" placeholder="Where are you playing?">
 			</div>
 			
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-success btn-lg" id="gameSubmit">Submit</button>
 		</form>
 	</div>
 

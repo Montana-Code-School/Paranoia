@@ -3,6 +3,7 @@ body {
 	color: green;
 	font-family: courier;
 }
+
 .box {
 	border-width: 5px;
 	border-style: double;
@@ -30,13 +31,14 @@ body {
 	background-color: black;
 }
 
+/* css for completeGame.ejs */
+
 .remove-button {
 	border-radius: 10%; 
 	height: 21px; 
 	width: 30px;
 	border-width: 2px;
 }
-
 
 #completeGameTop {
 	padding-top: 35px;
@@ -66,10 +68,24 @@ body {
 
 #startButton {
 	border-radius: 15%;
-
 }
+
+/* css for createGame.ejs */
+
+
 #gameMaker {
+	margin-top: 40px;
 	text-align: center;
 	display: inline-block;
-
 }
+
+#gameMaker legend {
+	color: green;
+	font-size: 33px;
+}
+
+#gameSubmit {
+	margin-top: 20px;
+}
+
+

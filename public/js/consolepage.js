@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
         "a clandestine world of secret agents bent on your destruction. However, as you are pursued, \n" +
         "so shall you pursue.  Your goal is to be the last agent standing.  The thrill of the chase is\n" + 
         "its own reward." + 
-        "\n\nTo accept the challenge and join our secret society, type 'signup'. " +
+        "\n\nTo accept the challenge and join our secret society, click the Sign Up/Sign In button below. " +
         "\n\nTo learn more about the game, type 'rules'. ",
         onBlur: function() {
             // prevent loosing focus
