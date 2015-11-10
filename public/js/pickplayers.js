@@ -44,6 +44,14 @@ var deleteGuy = function(gameid, guy){
 	});
 	
 };
+
+var finalizeGame = function (){
+	
+		$( ".remove-button" ).hide();
+		$( "#startButton").hide();
+
+}
+
 var allPlayers = [];
 
 var playerGetter = function (gameid) {
@@ -82,7 +90,7 @@ var deleteTarget = function(gameid, tag){
 		  		if( player.tag === tag ) {
 				player.handle = foundHandle;
 			}else {
-				console.log("Cant find that Tag!");
+				console.log("Can't find that Tag!");
 			};
 			for (var i = 0; i < playerArray.length; i++) {
 				if(foundHandle != null && playerArray[i] === foundHandle){

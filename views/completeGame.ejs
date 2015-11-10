@@ -21,19 +21,29 @@
 	</form>
 </div>
 
-	<div class="container ">
+	<div class="container">
 		<div class="row">
-			<h2>Players Added to Game</h2>
+			<div class="col-xs-offset-3">
+				<h2>Players in the Game/Leaderboard</h2>
+			</div>
 			<div class="container">				
 				<div id="selectedPlayers">
-					<div class="row">
-						<div class="col-xs-1">
+					<div class="row" id="belowPlayerHeader">
+			
+						<div class="col-xs-3">
+							<h3>Agent Handle</h3>
 						</div>
 						<div class="col-xs-2">
-							<h4>Agent Handle</h4>
+							<h3>Target</h3>
 						</div>
-						<div class="col-xs-8">
-							<h4>Target Handle</h4>
+						<div class="col-xs-2">
+							<h3>Tag Number</h3>
+						</div>
+						<div class="col-xs-2">
+							<h3>Email</h3>
+						</div>
+						<div class="col-xs-3">
+							<h3>Still Active?</h3>
 						</div>
 
 					</div>
@@ -43,17 +53,18 @@
 					game.players.forEach(function(player, index) { %>
 					<div class="row">
 					<button class="col-xs-1 remove-button" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
-						<span class="glyphicon glyphicon-remove"></span>
+						<span class="glyphicon glyphicon-remove-sign"></span>
 					</button>
 
-				<div class="col-xs-2">
+				<div class="col-xs-3 nameSpace">
 					<%= player %>
 				</div>
 
-				<div class="col-xs-8">
+				<div class="col-xs-2">
 					<%= game.targets[index] %> 
 
 				</div>
+
 				</div>
 					<%})}%>
 				</div>
@@ -72,16 +83,16 @@
 
 		</div>
 		<div class="submit">
-						<span class="submit" id="basic-addon1">Start Loving</span>
+				<span class="submit" id="basic-addon1">When you're finished adding players, click: </span>
 
-						<button type="submit" href="/profile" class="btn btn-warning btn-lg">Start Game</button>
+				<button type="submit" onclick="finalizeGame()" id="finalizeGame" class="btn btn-primary btn-md">Finalize Game</button>
 		</div>
 
 		<form action=<%="/api/targetRoutes/" + game._id %> method="PUT">
-						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
-						<input id="tagGetter" type="text" class="form-control" name="targets" placeholder="Agent Tag">
+				<span class="input-group-addon" id="basic-addon1">Update Leaderboard</span>
+				<input id="tagGetter" type="text" class="form-control" name="targets" placeholder="Agent Tag">
 
-						<button type="submit" class="btn btn-warning btn-lg">Enter Tag</button>
+				<button type="submit" class="btn btn-warning btn-lg">Update Leaderboard</button>
 		</form>
 	</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	
