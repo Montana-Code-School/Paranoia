@@ -1,11 +1,19 @@
-var grabTag = function(playTag){
+var grabTag = function(game, playTag){
+	var arrayPlayer = game.split(',');
+	var target = playTag.split(',');
+	console.log(target);
+	console.log(arrayPlayer);
 	var inputTag = document.getElementById('tagGetter').value;
-	if(playTag === inputTag) {
-		alert("succes");
-	} else {
-		alert('fail');
+		for(var i = 0; i < arrayPlayer.length; i++) {
+			if(arrayPlayer[i] === inputTag) {
+				var index = i;
+				target.splice(arrayPlayer[index], 1);
+				alert("target terminated");
+		} else {
+			alert('fail');
+		}
 	}
-	
+	return target;
 };
 
 
@@ -36,6 +44,14 @@ var deleteGuy = function(gameid, guy){
 	});
 	
 };
+
+var finalizeGame = function (){
+	
+		$( ".remove-button" ).hide();
+		$( "#startButton").hide();
+
+}
+
 var allPlayers = [];
 
 var playerGetter = function (gameid) {
@@ -74,7 +90,7 @@ var deleteTarget = function(gameid, tag){
 		  		if( player.tag === tag ) {
 				player.handle = foundHandle;
 			}else {
-				console.log("Cant find that Tag!");
+				console.log("Can't find that Tag!");
 			};
 			for (var i = 0; i < playerArray.length; i++) {
 				if(foundHandle != null && playerArray[i] === foundHandle){

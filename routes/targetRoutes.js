@@ -12,12 +12,25 @@ router.route('/:id')
            _id: req.params.id
        }, function(err, game) {
            if (err)
-               res.send(err); 
+               res.send(err);
            game.targets = targetsRandomized(game.players);
+           console.log(game.targets);
            game.save();
            res.render('completeGame.ejs', {game : game});
        });
-   });
+   })
+  .put(function(req, res){
+  	mongoose.model('Game').findById({
+  		_id: req.params.id
+  	}, function(err, game){
+  		if(err)
+  			res.send(err);
+  		console.log("HELLLOOOO")
+  		game.targets = grabTag(game.players, game.targets);
+  		game.save();
+  		res.render('completeGame.ejs', {game: game});
+  	});
+  })
 
 var targetsRandomized = function(players){
 	var refCopy = players.slice();

@@ -15,7 +15,7 @@
 	
 			<div>
 				
-					<h1><%= player %>'s Dossier</h1>
+					<h1><%= player[0].handle %>'s Dossier</h1>
 					
 					<strong>email</strong>: <%= user.local.email %><br>
 					<strong>Tag:  <%= player[0].tag %> </strong> <br>
@@ -55,9 +55,19 @@
 				</ul>	
 			</div>
 		</div>
+
+			<div>
+						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
+						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag">
+
+						<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-warning btn-lg">Enter Tag</button>
+			</div>
+
 	</div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="/js/pickplayers.js"></script>
 
 </body>
 </html>
