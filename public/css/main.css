@@ -32,9 +32,19 @@ body {
 
 .remove-button {
 	border-radius: 10%; 
-	height: 30px; 
+	height: 21px; 
 	width: 30px;
 	border-width: 2px;
+}
+
+
+#completeGameTop {
+	padding-top: 35px;
+}
+
+#leaderboardTitle {
+	text-decoration: underline;
+	margin-top: 45px;
 }
 
 .nameSpace {
@@ -42,12 +52,16 @@ body {
 }
 
 #selectedPlayers {
-	margin-top: 25px;
-	margin-bottom: 35px;
+	margin-top: 5px;
+	margin-bottom: 25px;
 }	
 
 #belowPlayerHeader {
-	margin-bottom: 25px;
+	margin-bottom: 20px;
+}
+
+.leaderboardButtons {
+	margin-top: 15px;
 }
 
 #startButton {
