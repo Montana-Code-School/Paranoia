@@ -1,20 +1,4 @@
-var grabTag = function(game, playTag){
-	var arrayPlayer = game.split(',');
-	var target = playTag.split(',');
-	console.log(target);
-	console.log(arrayPlayer);
-	var inputTag = document.getElementById('tagGetter').value;
-		for(var i = 0; i < arrayPlayer.length; i++) {
-			if(arrayPlayer[i] === inputTag) {
-				var index = i;
-				target.splice(arrayPlayer[index], 1);
-				alert("target terminated");
-		} else {
-			alert('fail');
-		}
-	}
-	return target;
-};
+
 
 
 var deleteGuy = function(gameid, guy){
@@ -45,8 +29,26 @@ var deleteGuy = function(gameid, guy){
 
 var finalizeGame = function (){
 	
-		$( ".remove-button" ).hide();
-		$( "#startButton").hide();
+	$( ".remove-button" ).hide();
+	$( "#startButton").hide();
+
+	var grabTag = function(game, playTag){
+	var arrayPlayer = game.split(',');
+	var target = playTag.split(',');
+	console.log(target);
+	console.log(arrayPlayer);
+	var inputTag = document.getElementById('tagGetter').value;
+		for(var i = 0; i < arrayPlayer.length; i++) {
+			if(arrayPlayer[i] === inputTag) {
+				var index = i;
+				target.splice(arrayPlayer[index], 1);
+				alert("target terminated");
+			} else {
+				alert('fail');
+			}
+		}
+	return target;
+	};
 
 };
 
@@ -108,6 +110,11 @@ var deleteTarget = function(gameid, tag){
 			};
 		};		
 	});
+};
+
+var tagMaker = function(){
+  var tag = Math.floor(Math.random()*10000);
+  return tag;
 };
 
 
