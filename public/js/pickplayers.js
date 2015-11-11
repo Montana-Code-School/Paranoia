@@ -48,38 +48,36 @@ var finalizeGame = function (){
 		$( ".remove-button" ).hide();
 		$( "#startButton").hide();
 
-}
+};
 
-var allPlayers = [];
-
+var allUsers = [];
 
 var playerGetter = function (gameid) {
 
-	var list = document.getElementById("players");
+	var list = document.getElementById("users");
 
 	$.when( 
-		$.getJSON( "/api/playerRoutes/"), 
+		$.getJSON( "/completeGame/"), 
 		$.getJSON("/api/gamePlayer/" + gameid)
 	).then(
 
-		function( theplayers, gameplayers ) {
-			var players = '<option>Choose a player for your game</option>';
+		function( theUsers, gameUsers ) {
+			var users = '<option>Choose a player for your game</option>';
 
-			for (var i = 0; i < theplayers[0].length; i++) {
-				var p = theplayers[0][i].handle;
-				var g = gameplayers[0];
+			for (var i = 0; i < theUsers.length; i++) {
+				var p = theUsers[i].local.handle;
+				var g = gameUsers[0];
 
 				if(g.indexOf(p) === -1 ){
-					players += '<option value="' + p + '">' + p + '</option>';
+					users += '<option value="' + p + '">' + p + '</option>';
 
-					allPlayers.push(p);
+					allUsers.push(p);
 				}
 			}
-			list.innerHTML = players;
+			list.innerHTML = users;
 		}
 	);
 }
-
 
 var deleteTarget = function(gameid, tag){
 	$.when(
