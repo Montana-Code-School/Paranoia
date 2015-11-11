@@ -3,18 +3,13 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
-var homecontrol = function(req, res){
-  var context =  req.game;
-  console.log("In homecontrol ", game.gameName);
-  res.render('completeGame.ejs', context);
-}
 
+var User = require('../models/user')
 var Game = require('../models/gamedb');
 
 // /api/gameRoutes/
 router.route('/')
 
-/* GET All Blogs */
 .get(function(req, res) {
    mongoose.model('Game').find({}, function(err, games){
      if(err){
@@ -30,12 +25,13 @@ router.route('/')
   var game =  new Game();
     
   game.gameName = req.body.gameName;
-  game.moderator= req.body.moderator;
-  game.startTime= req.body.startTime;
-  game.endTime= req.body.endTime;
-  game.location= req.body.location;
-  game.players= req.body.players;
-  game.targets= [];
+  // Game
+  //   .findOne({ gameName: game.gameName })
+  //   .populate('_players')
+  //   .exec(function (err, game) {
+  //     if (err) return handleError(err);
+  //     console.log('The creator is %s', game._players);
+  //   });
 
   game.save( function(err) {
      if(err){
@@ -43,9 +39,8 @@ router.route('/')
      } else{
       console.log("New game named " + game.gameName + " created!");
       res.app.game = game;
-      // res.redirect('/completeGame');
-      
-      res.render('completeGame.ejs', {game : game});
+       res.redirect('/completeGame/'+game._id)
+     // res.render('completeGame.ejs', {game : game});
        
      }
    });

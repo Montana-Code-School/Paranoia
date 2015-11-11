@@ -13,47 +13,47 @@ router.route('/:id')
        }, function(err, game) {
            if (err)
                res.send(err);
-           game.targets = targetsRandomized(game.players);
+           game.targets = targetsRandomized(game._players);
            console.log(game.targets);
            game.save();
-           res.render('completeGame.ejs', {game : game});
+           res.redirect('/completeGame/' + game._id);
        });
    })
   .put(function(req, res){
-  	mongoose.model('Game').findById({
-  		_id: req.params.id
-  	}, function(err, game){
-  		if(err)
-  			res.send(err);
-  		console.log("HELLLOOOO")
-  		game.targets = grabTag(game.players, game.targets);
-  		game.save();
-  		res.render('completeGame.ejs', {game: game});
-  	});
+    mongoose.model('Game').findById({
+      _id: req.params.id
+    }, function(err, game){
+      if(err)
+        res.send(err);
+      console.log("HELLLOOOO")
+      game.targets = grabTag(game._players, game.targets);
+      game.save();
+      res.redirect('/completeGame/' + game._id);
+    });
   })
 
-var targetsRandomized = function(players){
-	var refCopy = players.slice();
-	var randCopy = refCopy.slice();
-	var randomizedArray = [];
-	for (var i = 0; i < refCopy.length; i++) {
-		var index = Math.floor(Math.random()*randCopy.length);
-		randomizedArray[i] =  randCopy[index];
-		randCopy.splice(index, 1);
 
-	};
-	var targets = [];
-	var oneLess = randomizedArray.length;
-	for (var i = 0; i < randomizedArray.length; i++) {
-		var newTarget = randomizedArray[(i + 1) % oneLess];
-		targets[players.indexOf(randomizedArray[i])] = newTarget;
-	};
-	return targets;
-	
+var targetsRandomized = function(players){
+  var refCopy = players.slice();
+  var randCopy = refCopy.slice();
+  var randomizedArray = [];
+  for (var i = 0; i < refCopy.length; i++) {
+    var index = Math.floor(Math.random()*randCopy.length);
+    randomizedArray[i] =  randCopy[index];
+    randCopy.splice(index, 1);
+
+  };
+  var targets = [];
+  var oneLess = randomizedArray.length;
+  for (var i = 0; i < randomizedArray.length; i++) {
+    var newTarget = randomizedArray[(i + 1) % oneLess];
+    targets[players.indexOf(randomizedArray[i])] = newTarget;
+  };
+  return targets;
+  
 };
 
 
 
 module.exports = router;
 module.exports.targetsRandomized = targetsRandomized;
-

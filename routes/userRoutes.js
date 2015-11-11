@@ -26,6 +26,8 @@ module.exports = function(app, passport) {
         });
     
     });
+
+    
     // COMPLETE PROFILE SECTION =========================
     app.get('/completeProfile', isLoggedIn, function(req, res) {
         res.render('completeProfile.ejs', {
@@ -39,10 +41,21 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
-    app.get('/completeGame', isLoggedIn, function(req, res) {
-        res.render('gameProfile.ejs', {
-            user : req.user,
-            player: player
+    
+    app.get('/completeGame/:id', isLoggedIn, function(req, res) {
+        var gameId = req.params.id;
+            mongoose.model('Game').findById(gameId).populate('_players').populate('targets').exec( function(err, game){
+                if(err){
+                  return console.log(err);
+                } else {
+                mongoose.model('User').find({}, function(err, users){
+                  if(err){
+                    return console.log(err);
+                  } else {
+                   res.render('completeGame.ejs', {users: users, game:game})
+                  }
+              });
+            }
         });
     });
 
@@ -92,7 +105,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/completeProfile', // redirect to the secure profile section
+        successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));

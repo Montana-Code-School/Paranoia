@@ -9,9 +9,8 @@ router.use(bodyParser.urlencoded({ extended: true }))
 
   .post(function(req, res) {
 
-
-       var player = req.body.players;
-       console.log(req.body);
+       var player = req.body.user;
+       console.log(player);
 
        mongoose.model('Game').findById({
            _id: req.params.id
@@ -20,15 +19,15 @@ router.use(bodyParser.urlencoded({ extended: true }))
           if (err)
               res.send(err);
             
-            game.players.push(player);
+            game._players.push(player);
             game.targets.push(null);
             game.save();
             
             console.log("New player named " + player + " added to game " + game.gameName);
             res.app.game = game;
-            // res.redirect('/completeGame');
+            res.redirect('/completeGame/' + req.params.id);
       
-      res.render('completeGame.ejs', {game : game});
+      // res.render('completeGame.ejs', {game : game});
        });
    })
 
@@ -52,8 +51,8 @@ router.use(bodyParser.urlencoded({ extended: true }))
        }, function(err, game) {
             
 
-        	if (err)
-            	res.send(err);
+          if (err)
+              res.send(err);
             
             game.players.push(player);
             game.save();
@@ -62,28 +61,28 @@ router.use(bodyParser.urlencoded({ extended: true }))
    })
 
    .delete(function(req, res) {
-   	var player = req.body.player;
+    var player = req.body.player;
     console.log(player + " is in this array!");
-   	mongoose.model('Game').findById({
-   		_id: req.params.id
-   	}, function(err, game) {
-   		if (err)
+    mongoose.model('Game').findById({
+      _id: req.params.id
+    }, function(err, game) {
+      if (err)
         
-   			res.send(err);
-   		var index = game.players.indexOf(player);
-   		if (index != -1){
-   			game.players.splice(index, 1);
+        res.send(err);
+      var index = game.players.indexOf(player);
+      if (index != -1){
+        game.players.splice(index, 1);
         game.targets.splice(index, 1);
-   			game.save();
+        game.save();
         console.log("This is coming from the route: we deleted " + player);
-   			res.json({ message: player + " Eliminated!"})
+        res.json({ message: player + " Eliminated!"})
 
-   		} else {
+      } else {
         console.log("player not there " + player);
-   			res.json({ message: "player not there!"})
-   		}
+        res.json({ message: "player not there!"})
+      }
 
-   	});
+    });
    });
 
 module.exports = router; 

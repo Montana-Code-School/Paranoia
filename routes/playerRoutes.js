@@ -9,8 +9,6 @@ var agentTag = function(){
                return tag;
 };
 
-
-
 router.route('/')
 
  .get(function(req, res) {

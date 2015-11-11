@@ -14,8 +14,11 @@
 			</div>
 
 			<label for="players">Players</label>
-			<select id="players" name="players">
+			<select id="user" name="user">
 				<option>Choose a player</option>
+					<% for(var i=0; i< users.length; i++) {%>
+			      		<option value="<%= users[i]._id%>"><%= users[i].local.handle%></option> 
+					<% } %>
 			</select>	
 			<button type="submit" class="btn btn-primary">Add Player</button>
 		</form>
@@ -52,8 +55,8 @@
 					</div>
 
 				<div class="row tablerow">
-					<% if (game.players) {
-					game.players.forEach(function(player, index) { %>
+					<% if (game._players) {
+					game._players.forEach(function(player, index) { %>
 					<div class="row">
 
 					<button class="col-xs-1 remove-button btn-danger" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
@@ -61,11 +64,13 @@
 					</button>
 
 				<div class="col-xs-3 nameSpace">
-					<%= player %>
+					<%= player.local.handle %>
 				</div>
 
 				<div class="col-xs-2">
-					<%= game.targets[index] %> 
+					<% if (game.targets[index]) { %>
+					<%= game.targets[index].local.handle %> 
+					<%}%> 
 
 				</div>
 
