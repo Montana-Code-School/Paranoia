@@ -9,6 +9,8 @@ var userSchema = mongoose.Schema({
         email        : String,
         password     : String,
         handle       : String,
+        tag          : Number,
+        target       : String
     },
 
 });
