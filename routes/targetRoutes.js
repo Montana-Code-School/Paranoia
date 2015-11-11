@@ -49,15 +49,20 @@ var targetsRandomized = function(players){
     var newTarget = randomizedArray[(i + 1) % oneLess];
     targets[players.indexOf(randomizedArray[i])] = newTarget;
   };
+  
+
+  for (var i = 0; i < targets.length; i++) {
+    players[i].local.target = targets[i]
+  };
+
   return targets;
   
 };
 
 
 
-// var targetsToUsers = function() {
-//   mongoose.findOne({ObjectID : PARAMETER1 })
-// }
+
+
 
 // var killTarget = function(players, targets, tag) {
 //   playerId = STORED BY PLAYERS LOGIN SESSION

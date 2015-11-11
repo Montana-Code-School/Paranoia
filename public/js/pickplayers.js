@@ -4,6 +4,7 @@
 var deleteGuy = function(gameid, guy){
 	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
 		var foundGuy = null;
+		console.log(data);
 		for (var i = 0; i < data.length; i++) {	
 		  	if( data[i] === guy ) {
 				foundGuy = guy;
@@ -32,6 +33,7 @@ var finalizeGame = function (){
 	$( ".remove-button" ).hide();
 	$( "#startButton").hide();
 
+}
 	var grabTag = function(game, playTag){
 	var arrayPlayer = game.split(',');
 	var target = playTag.split(',');
@@ -46,11 +48,10 @@ var finalizeGame = function (){
 			} else {
 				alert('fail');
 			}
-		}
 	return target;
 	};
 
-};
+	};
 
 var allUsers = [];
 
