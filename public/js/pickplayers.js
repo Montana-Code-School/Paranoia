@@ -43,13 +43,16 @@ var deleteGuy = function(gameid, guy){
 };
 
 
-var finalizeGame = function (){	
+var finalizeGame = function (){
+	
 		$( ".remove-button" ).hide();
 		$( "#startButton").hide();
-};
 
+}
 
 var allPlayers = [];
+
+
 var playerGetter = function (gameid) {
 
 	var list = document.getElementById("players");
