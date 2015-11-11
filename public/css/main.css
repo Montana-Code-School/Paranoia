@@ -7,7 +7,7 @@ body {
 /* profile.ejs css*/
 
 .box {
-	margin-top: 40px;
+	margin-top: 50px;
 	border-width: 5px;
 	border-style: double;
 	padding-bottom: 50px;
@@ -18,7 +18,11 @@ body {
 	margin-top: 50px;
 	border-width: 5px;
 	border-style: double;
-	padding-top: 50px;
+	padding-top: 40px;
+}
+
+.confirmTagText {
+	margin-top: 25px;
 }
 
 #ImageContainer { width: 300px; }
