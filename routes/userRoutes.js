@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
             if(err){
                 console.log(err);
             }
-            console.log(player, "so pplayer")
+            console.log(player, "so player")
             res.render('profile.ejs', {
                 user : req.user,
                 player : player
