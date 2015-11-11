@@ -15,7 +15,7 @@ var deleteGuy = function(gameid, guy){
 				url: "/api/gamePlayer/" + gameid,
 				type: 'DELETE',
 				dataType: 'json',
-				data: { "player": guy},
+				data: { "game._players": guy},
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
@@ -113,10 +113,6 @@ var deleteTarget = function(gameid, tag){
 	});
 };
 
-var tagMaker = function(){
-  var tag = Math.floor(Math.random()*10000);
-  return tag;
-};
 
 
 

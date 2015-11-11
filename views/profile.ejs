@@ -41,11 +41,8 @@
 		<div class="row"> 
 			<div>
 				<h1><%= user.local.handle %>'s Dossier</h1>
-					
-				<h2><strong>email</strong>: <%= user.local.email %><br></h2>
-					
-
-				<h2><strong>Tag:   </strong> <%= user.local.tag %> <br></h2>
+				<h2><strong>email</strong>: <%= user.local.email %><br></h2>	
+				<h2><strong>Tag:</strong> <%= user.local.tag %> <br></h2>
 			</div>
 		</div>
 	</div>
@@ -54,33 +51,37 @@
 		
 
 		<div class="row">
+			<div class="col-xs-12 col-xs-offset-4">
+				<h1><span class="glyphicon glyphicon-chevron-right"></span> Game Console</h1>
+			</div>
 			<div class="col-xs-4" id="imageContainer">
 				<img src="<%=user.local.pic%>" class="agentPicture">
 			</div>
 
 			<div class="col-xs-4">
 				<ul>
-					<h1><span class="glyphicon glyphicon-chevron-right"></span>Game Console</h1>
-					<div id="myGame">
-					</div>
-
 					<div class="container">
-					  <h2>Agents in the Field</h2>
-					  <p>agents fighting</p>                                                                                  
+					  <h2>Your target: <%= user.local.tag %> </h2>
+					  <h3 class="confirmTagText">Enter target's tag number to confirm elimination:</h3>                                                                               
 					</div>
+					<div class="col-xs-8">
+						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag Number">
+					</div>
+					<div class="col-xs-3">
+						<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-success">Submit Tag #</button>
+					</div>
+					<div class="col-xs-12">
+						<br>
+						<br>
+						<br>
+						<br>
 						<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
-
+					</div>
 				</ul>	
 			</div>
+
 		</div>
 	</div>
-
-		<div>
-			<span class="input-group-addon" id="basic-addon1">Confirm Target Elimination</span>
-			<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag">
-
-			<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-warning btn-lg">Enter Tag</button>
-		</div>
 
 	</div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
@@ -89,4 +90,5 @@
 	<script type="text/javascript" src="/js/pickplayers.js"></script>
 
 </body>
+
 </html>
