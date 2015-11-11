@@ -115,4 +115,14 @@ img.fakePhotoForSizing {
 	max-width: 10px;
 	max-height: 10px;
 }
+nav{
+	color:red;
+	background: linear-gradient(#0B0E18, #23A00D);
+
+}
+.nav a {
+	color: ;
+	
+	font-weight: bold;
+}
 
