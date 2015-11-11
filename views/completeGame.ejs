@@ -7,24 +7,24 @@
 </head>
 
 <body>
-<div class="container">
-	<strong>Game Name</strong>: <%= game.gameName %><br>
-	<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
-		<div id="playerList">
-		</div>
+	<div class="container" id="completeGameTop">
+		<strong>Game Name</strong>: <%= game.gameName %><br>
+		<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
+			<div id="playerList">
+			</div>
 
-		<label for="players">Players</label>
-		<select id="players" name="players">
-			<option>Choose a player</option>
-		</select>	
-		<button type="submit" class="btn btn-primary">Add Player</button>
-	</form>
-</div>
+			<label for="players">Players</label>
+			<select id="players" name="players">
+				<option>Choose a player</option>
+			</select>	
+			<button type="submit" class="btn btn-primary">Add Player</button>
+		</form>
+	</div>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-offset-3">
-				<h2>Players in the Game/Leaderboard</h2>
+				<h2 id="leaderboardTitle">Players in the Game/Leaderboard</h2>
 			</div>
 			<div class="container">				
 				<div id="selectedPlayers">
@@ -52,7 +52,7 @@
 					<% if (game.players) {
 					game.players.forEach(function(player, index) { %>
 					<div class="row">
-					<button class="col-xs-1 remove-button" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
+					<button class="col-xs-1 remove-button btn-danger" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
 						<span class="glyphicon glyphicon-remove-sign"></span>
 					</button>
 
@@ -70,29 +70,31 @@
 				</div>
 				</div>
 			</div >
-			<div class="col-xs-12 container">
-			<form action=<%= "/api/targetRoutes/" + game._id %> method="POST" id="startButton" > 
-			<button type="submit" title="Start Gaming" class="btn btn-danger">
-						Assign Targets
-			</button>
-			</form>
-			
-			</div>
-
-			
 
 		</div>
-		<div class="submit">
-				<span class="submit" id="basic-addon1">When you're finished adding players, click: </span>
 
-				<button type="submit" onclick="finalizeGame()" id="finalizeGame" class="btn btn-primary btn-md">Finalize Game</button>
+		<div class="container row leaderboardButtons">
+			<div class="col-xs-3">
+				<form action=<%= "/api/targetRoutes/" + game._id %> method="POST" id="startButton" > 
+				<button type="submit" title="Start Gaming" class="btn btn-danger">Assign Targets</button>
+				</form>
+			</div>
+
+			<div class="col-xs-6 submit">
+				<span class="submit" id="basic-addon1">After assigning targets, click: </span>
+				<button type="submit" onclick="finalizeGame()" id="finalizeGame" class="btn btn-primary">Finalize Game</button>
+			</div>
+
+			<div class="col-xs-3">
+				<button type="submit" class="btn btn-success">Update Leaderboard</button>
+			</div>
 		</div>
 
 		<form action=<%="/api/targetRoutes/" + game._id %> method="PUT">
 				<span class="input-group-addon" id="basic-addon1">Update Leaderboard</span>
 				<input id="tagGetter" type="text" class="form-control" name="targets" placeholder="Agent Tag">
 
-				<button type="submit" class="btn btn-warning btn-lg">Update Leaderboard</button>
+				<button type="submit" class="btn btn-success">Update Leaderboard</button>
 		</form>
 	</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>	

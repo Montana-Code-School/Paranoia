@@ -7,61 +7,51 @@
 </head>
 <body>
 	<div class="container box">
-		
-		<div class="row" id="AgentPicture">
-			<div class="col-md-6">
-				<img src="<%=player.pic%>">
-			</div>
-	
+		<div class="row"> 
 			<div>
-				
-					<h1><%= player[0].handle %>'s Dossier</h1>
-					
-					<strong>email</strong>: <%= user.local.email %><br>
-					<strong>Tag:  <%= player[0].tag %> </strong> <br>
-					
+				<h1><%= player[0].handle %>'s Dossier</h1>
+				<strong>email</strong>: <%= user.local.email %><br>
+				<strong>Tag:  <%= player[0].tag %> </strong> <br>
 			</div>
 		</div>
 	</div>
 
 	<div class="container box-two">
-		<div class="row">
-			<div class="col-md-6">
-				<img src="../images/spyTeam.png">
+		<!-- <div class="row" id="AgentPicture">
+			<div class="col-xs-offset-1 col-xs-4">
+				<img src="<%=player.pic%>">
 			</div>
-	
-			<div>
+		</div> -->
+
+		<div class="row">
+			<div class="col-xs-4" id="imageContainer">
+				<img src="/images/skull.png" class="fakePhotoForSizing">
+			</div>
+
+			<div class="col-xs-4">
 				<ul>
 					<h1><span class="glyphicon glyphicon-chevron-right"></span>Game Console</h1>
-					<form class="input-group">
-						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
-						<input type="text" class="form-control" name="tag" placeholder="Agent Tag">
-
-						<button type="submit" class="btn btn-warning btn-lg">Enter Tag</button>
-					</form>
-					
 					<div id="myGame">
-
 					</div>
+
 					<div class="container">
-  <h2>Agents in the Field</h2>
-  <p>agents fighting</p>                                                                                      
-  
-</div>
-					<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
-	
-					<a href="/logout" class="btn btn-default"><span class="fa fa-user"></span>Log Out</a>
-	
+					  <h2>Agents in the Field</h2>
+					  <p>agents fighting</p>                                                                                  
+					</div>
+						<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
+						<a href="/logout" class="btn btn-default"><span class="fa fa-user"></span>Log Out</a>
+
 				</ul>	
 			</div>
 		</div>
+	</div>
 
-			<div>
-						<span class="input-group-addon" id="basic-addon1">Confirm Target Hug</span>
-						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag">
+		<div>
+			<span class="input-group-addon" id="basic-addon1">Confirm Target Elimination</span>
+			<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag">
 
-						<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-warning btn-lg">Enter Tag</button>
-			</div>
+			<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-warning btn-lg">Enter Tag</button>
+		</div>
 
 	</div>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>

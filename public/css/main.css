@@ -3,7 +3,11 @@ body {
 	color: green;
 	font-family: courier;
 }
+
+/* profile.ejs css*/
+
 .box {
+	margin-top: 40px;
 	border-width: 5px;
 	border-style: double;
 	padding-bottom: 50px;
@@ -16,6 +20,15 @@ body {
 	border-style: double;
 	padding-top: 50px;
 }
+
+#ImageContainer { width: 300px; }
+
+img.fakePhotoForSizing {
+    width:100%;
+	padding-bottom: 45px;
+}
+
+/*close profile.ejs css */
 
 .signIn {
 	text-align: center;
@@ -30,11 +43,22 @@ body {
 	background-color: black;
 }
 
+/* css for completeGame.ejs */
+
 .remove-button {
 	border-radius: 10%; 
-	height: 30px; 
+	height: 21px; 
 	width: 30px;
 	border-width: 2px;
+}
+
+#completeGameTop {
+	padding-top: 35px;
+}
+
+#leaderboardTitle {
+	text-decoration: underline;
+	margin-top: 45px;
 }
 
 .nameSpace {
@@ -42,24 +66,45 @@ body {
 }
 
 #selectedPlayers {
-	margin-top: 25px;
-	margin-bottom: 35px;
+	margin-top: 5px;
+	margin-bottom: 25px;
 }	
 
 #belowPlayerHeader {
-	margin-bottom: 25px;
+	margin-bottom: 20px;
+}
+
+.leaderboardButtons {
+	margin-top: 15px;
 }
 
 #startButton {
 	border-radius: 15%;
-
 }
+
+/* css for createGame.ejs */
+
+
 #gameMaker {
+	margin-top: 40px;
 	text-align: center;
 	display: inline-block;
+}
+
+#gameMaker legend {
+	color: green;
+	font-size: 33px;
+}
+
+#gameSubmit {
+	margin-top: 20px;
+}
+
+
 
 }
 #AgentPicture {
 	max-width: 10px;
 	max-height: 10px;
 }
+

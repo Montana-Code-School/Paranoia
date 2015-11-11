@@ -19,7 +19,6 @@ var grabTag = function(game, playTag){
 
 var deleteGuy = function(gameid, guy){
 	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
-		
 		var foundGuy = null;
 		for (var i = 0; i < data.length; i++) {	
 		  	if( data[i] === guy ) {
@@ -35,25 +34,22 @@ var deleteGuy = function(gameid, guy){
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
-
     			}
 			});
 		} else {
 			console.log("Couldn't find " + guy);
 		};	
 	});
-	
 };
 
-var finalizeGame = function (){
-	
+
+var finalizeGame = function (){	
 		$( ".remove-button" ).hide();
 		$( "#startButton").hide();
+};
 
-}
 
 var allPlayers = [];
-
 var playerGetter = function (gameid) {
 
 	var list = document.getElementById("players");
@@ -80,6 +76,8 @@ var playerGetter = function (gameid) {
 		}
 	);
 }
+
+
 var deleteTarget = function(gameid, tag){
 	$.when(
 		$.getJSON("/api/playerRoutes/"),
@@ -104,7 +102,6 @@ var deleteTarget = function(gameid, tag){
 							location.href = "/game/" + gameid;
 						}
 					});
-
 				}else{
 					console.log("couldn't accomplish mission against " + guy);
 			};
@@ -112,6 +109,6 @@ var deleteTarget = function(gameid, tag){
 	});
 };
 
-// var players = ['Jessie', 'Walt', 'Hank', 'Finn', 'Saul'];
+
 
 
