@@ -10,7 +10,8 @@ var userSchema = mongoose.Schema({
         password     : String,
         handle       : String,
         tag          : Number,
-        target       : String
+        target       : String,
+        alive        : Boolean
     },
 
 });
