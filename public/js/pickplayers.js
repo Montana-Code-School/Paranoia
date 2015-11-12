@@ -16,7 +16,9 @@ var deleteGuy = function(gameid, guy){
 				type: 'DELETE',
 				dataType: 'json',
 
+
 				data: { "game._players": guy},
+
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;

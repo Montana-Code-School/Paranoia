@@ -41,12 +41,12 @@
 </nav>
 
 	<div class="container" id="completeGameTop">
-		<strong>Game Name</strong>: <%= game.gameName %><br>
+		<strong class="enlargeGameName">Game Name:</strong> <%= game.gameName %><br>
 		<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
 			<div id="playerList">
 			</div>
 
-			<label for="players">Players</label>
+			<label class="enlargePlayersName" for="players">Players</label>
 			<select id="user" name="user">
 				<option>Choose a player</option>
 					<% for(var i=0; i< users.length; i++) {%>
