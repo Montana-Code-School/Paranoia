@@ -9,15 +9,21 @@
 <body>
 
 
+
 <nav class="navbar navbar-inverse">
+
 
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       
+<<<<<<< HEAD
       <a class="navbar-brand"><img alt="Paranoia Logo" src="../images/paraCopy.png"></a>
       	
     </div>
+=======
+      <a class="navbar-brand"><img alt="Paranoia Logo" src="images/paraCopy.png"></a>  </div>
+>>>>>>> refs/remotes/origin/master
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -30,9 +36,7 @@
             <li><a href="/profile">Profile</a></li>
             <li><a href="/signup">Sign Up</a></li>
             <li><a href="/consolepage.html">Go Home</a></li>
-            <li><a href="/completeGame">Go to Game</a></li>
             <li><a href="/createGame">Start A Game</a></li>
-            <li><a href="/completeGame">Rules</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/logout">Logout</a></li>
           </ul>
@@ -43,12 +47,12 @@
 </nav>
 
 	<div class="container" id="completeGameTop">
-		<strong>Game Name</strong>: <%= game.gameName %><br>
+		<strong class="enlargeGameName">Game Name:</strong> <%= game.gameName %><br>
 		<form action=<%= "/api/gamePlayer/" + game._id %> method="POST">
 			<div id="playerList">
 			</div>
 
-			<label for="players">Players</label>
+			<label class="enlargePlayersName" for="players">Players</label>
 			<select id="user" name="user">
 				<option>Choose a player</option>
 					<% for(var i=0; i< users.length; i++) {%>

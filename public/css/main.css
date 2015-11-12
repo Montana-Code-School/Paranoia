@@ -51,7 +51,6 @@ img.agentPicture {
 
 .remove-button {
 	border-radius: 10%; 
-
 	height: 21px; 
 	width: 30px;
 	border-width: 2px;
@@ -60,6 +59,14 @@ img.agentPicture {
 
 #completeGameTop {
 	padding-top: 35px;
+}
+
+.enlargeGameName {
+	font-size: 20px;
+}
+
+.enlargePlayersName {
+	font-size: 20px;
 }
 
 #leaderboardTitle {

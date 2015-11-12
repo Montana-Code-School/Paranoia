@@ -91,7 +91,7 @@ router.route('/')
    })
    
    .delete(function(req, res) {
-       mongoose.model('Player').remove({
+       mongoose.model('User').remove({
            _id: req.params.id
        }, function(err, player) {
            if (err)

@@ -16,7 +16,14 @@ var deleteGuy = function(gameid, guy){
 				url: "/api/gameRoutes/" + gameid,
 				type: 'DELETE',
 				dataType: 'json',
+<<<<<<< HEAD
 				data: { "_players" : 'ObjectId("' + arrayPlayerOfIds[i] + '")'},
+=======
+
+
+				data: { "game._players": guy},
+
+>>>>>>> refs/remotes/origin/master
 				success: function(result) {
 
 					console.log(result)
@@ -121,6 +128,14 @@ var deleteTarget = function(gameid, tag){
 };
 
 
-
+// var winningCondition = function(gameid){
+// 	var playerCount = gameid.
+// 	if  {
+// 		players === 1
+// 		alert('You stand alone as the Victor')
+// 	}else {
+// 		alert('There are other Agents still in the field');
+// 	}
+// }
 
 
