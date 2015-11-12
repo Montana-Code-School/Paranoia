@@ -87,8 +87,10 @@ router.route('/')
    })
 
    .delete(function(req, res) {
+    console.log("DELTETING GAMES");
        mongoose.model('Game').remove({
-           _id: req.params.id
+           _id: req.params.id,
+           _players: req.body._players
        }, function(err, game) {
            if (err)
                res.send(err);

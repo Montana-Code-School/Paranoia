@@ -33,19 +33,19 @@ router.use(bodyParser.urlencoded({ extended: true }))
    })
 
    .get(function(req, res) {
+    console.log("ENTERING GET FUNCTION")
        mongoose.model('Game').findById({
            _id: req.params.id
        }, function(err, game) {
            if (err)
                res.send(err);
 
-           res.json(game.players);
+           res.json({message: "inside gameplayer get route"}, game._players);
        });
    })
    
    .put(function(req, res) {
-       var player = req.body.player;
-
+       var player = req.body._player;
        
        mongoose.model('Game').findById({
            _id: req.params.id
@@ -55,14 +55,15 @@ router.use(bodyParser.urlencoded({ extended: true }))
           if (err)
               res.send(err);
             
-            game.players.push(player);
+            game._players.push(player);
             game.save();
-            res.json(game.players);
+            res.json(game._players);
        });
    })
 
    .delete(function(req, res) {
-    var player = req.body.player;
+    console.log("ENTERING DELETE FUNCTIONNNNNNNN")
+    var player = req.body._players;
     console.log(player + " is in this array!");
     mongoose.model('Game').findById({
       _id: req.params.id
@@ -70,9 +71,9 @@ router.use(bodyParser.urlencoded({ extended: true }))
       if (err)
         
         res.send(err);
-      var index = game.players.indexOf(player);
+      var index = game._players.indexOf(player);
       if (index != -1){
-        game.players.splice(index, 1);
+        game._players.splice(index, 1);
         game.targets.splice(index, 1);
         game.save();
         console.log("This is coming from the route: we deleted " + player);

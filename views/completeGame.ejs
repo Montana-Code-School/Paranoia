@@ -88,7 +88,7 @@
 					game._players.forEach(function(player, index) { %>
 					<div class="row">
 
-					<button class="col-xs-1 remove-button btn-danger" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player %>')">
+					<button class="col-xs-1 remove-button btn-danger" type="submit" title="Terminate Player" onclick="deleteGuy('<%= game._id %>','<%= player._id %>')">
 						<span class="glyphicon glyphicon-remove-sign"></span>
 					</button>
 

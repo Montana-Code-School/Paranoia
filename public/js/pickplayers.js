@@ -1,31 +1,38 @@
 
 
-
+var arrayPlayerOfIds = [];
 var deleteGuy = function(gameid, guy){
-	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
-		var foundGuy = null;
-		console.log(data);
-		for (var i = 0; i < data.length; i++) {	
-		  	if( data[i] === guy ) {
-				foundGuy = guy;
-			};
-		};
-		if (foundGuy != null) {
+
+		$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
+			arrayPlayerOfIds = data;
+			console.log(guy, arrayPlayerOfIds.toString());
+		});
+		for (var i = 0; i < arrayPlayerOfIds; i++) {
+			console.log("inside for loop")
+			console.log(arrayPlayerOfIds[i].toString())
+			if(guy === arrayPlayerOfIds[i].toString()){
+			console.log("preparing to enter ajax", gameid, guy)
 			$.ajax({
-				url: "/api/gamePlayer/" + gameid,
+				url: "/api/gameRoutes/" + gameid,
 				type: 'DELETE',
 				dataType: 'json',
-				data: { "game._players": guy},
+				data: { "_players" : 'ObjectId("' + arrayPlayerOfIds[i] + '")'},
 				success: function(result) {
+
+					console.log(result)
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
+    			},
+    			error: function(err){
+    				console.log(err)
     			}
 			});
-		} else {
-			console.log("Couldn't find " + guy);
-		};	
-	});
-};
+			}
+		};
+		
+
+	};
+
 
 
 var finalizeGame = function (){
