@@ -7,19 +7,19 @@ body {
 /* profile.ejs css*/
 
 .box {
-	margin-top: 50px;
+	margin-top: 90px;
 	border-width: 5px;
 	border-style: double;
-	padding-bottom: 50px;
+	padding-bottom: 70px;
 	text-align: center;
 }
 
 .box-two {
-	margin-top: 50px;
+	margin-top: 90px;
 	border-width: 5px;
 	border-style: double;
 	padding-top: 40px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 }
 
 .confirmTagText {

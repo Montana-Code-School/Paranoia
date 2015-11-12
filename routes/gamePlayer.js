@@ -62,12 +62,10 @@ router.use(bodyParser.urlencoded({ extended: true }))
    })
 
    .delete(function(req, res) {
-<<<<<<< HEAD
+
     console.log("ENTERING DELETE FUNCTIONNNNNNNN")
     var player = req.body._players;
-=======
-    var player = req.body.user;
->>>>>>> refs/remotes/origin/master
+
     console.log(player + " is in this array!");
     mongoose.model('Game').findById({
       _id: req.params.id

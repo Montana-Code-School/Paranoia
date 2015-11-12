@@ -30,7 +30,7 @@ var rules = function(term) {
         'before casually discussing the game with others.)  All games begin at midnight.\n\n' +  
         'Eliminations:  When you eliminate an agent they will surrender their badge number to you. Enter\n' +
         'this number on your profile page to confirm the deed and receive your new target.  Follow the\n' + 
-        'same proceedure if you are eliminated. (Note: Your badge number is assigned when you sign up.\n' + 
+        'same proceedure if you are eliminated. (Note: You will choose a badge number when you sign up.\n' + 
         'It can be found at the top of your profile page.)\n\n' +
         'Rules: No weapons of any kind are allowed. Players are eliminated by touching with fingers.\n' + 
         'To maintain your cover, all eliminations must be covert. You may not enter a dorm room uninvited.\n' + 
