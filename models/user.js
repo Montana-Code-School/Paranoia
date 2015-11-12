@@ -11,7 +11,8 @@ var userSchema = mongoose.Schema({
         handle       : String,
         tag          : Number,
         target       : String,
-        alive        : Boolean
+        alive        : Boolean,
+        pic          : String,
     },
 
 });

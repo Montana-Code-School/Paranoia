@@ -4,6 +4,7 @@
 var deleteGuy = function(gameid, guy){
 	$.getJSON("/api/gamePlayer/" + gameid, function( data ) {
 		var foundGuy = null;
+		console.log(data);
 		for (var i = 0; i < data.length; i++) {	
 		  	if( data[i] === guy ) {
 				foundGuy = guy;
@@ -14,7 +15,8 @@ var deleteGuy = function(gameid, guy){
 				url: "/api/gamePlayer/" + gameid,
 				type: 'DELETE',
 				dataType: 'json',
-				data: { "user": guy},
+
+				data: { "game._players": guy},
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
@@ -32,6 +34,7 @@ var finalizeGame = function (){
 	$( ".remove-button" ).hide();
 	$( "#startButton").hide();
 
+}
 	var grabTag = function(game, playTag){
 	var arrayPlayer = game.split(',');
 	var target = playTag.split(',');
@@ -46,11 +49,10 @@ var finalizeGame = function (){
 			} else {
 				alert('fail');
 			}
-		}
 	return target;
 	};
 
-};
+	};
 
 var allUsers = [];
 
@@ -112,10 +114,6 @@ var deleteTarget = function(gameid, tag){
 	});
 };
 
-var tagMaker = function(){
-  var tag = Math.floor(Math.random()*10000);
-  return tag;
-};
 
 // var winningCondition = function(gameid){
 // 	var playerCount = gameid.

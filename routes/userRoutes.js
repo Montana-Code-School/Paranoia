@@ -43,20 +43,39 @@ module.exports = function(app, passport) {
     });
     
     app.get('/completeGame/:id', isLoggedIn, function(req, res) {
+        
         var gameId = req.params.id;
-            mongoose.model('Game').findById(gameId).populate('_players').populate('targets').exec( function(err, game){
-                if(err){
-                  return console.log(err);
-                } else {
-                mongoose.model('User').find({}, function(err, users){
-                  if(err){
-                    return console.log(err);
-                  } else {
-                   res.render('completeGame.ejs', {users: users, game:game})
-                  }
+        mongoose.model('Game').findById(gameId).populate('_players').populate('targets').exec( function(err, game){
+             if(err){
+               return console.log(err);
+             } else {
+             mongoose.model('User').find({}, function(err, users){
+               if(err){
+                 return console.log(err);
+               } else {
+                res.render('completeGame.ejs', {users: users, game:game})
+                }
               });
             }
         });
+
+
+        // var fullId = 'ObjectId("' + gameId + '")';
+        // console.log(fullId);
+        
+        // var myGame = mongoose.model('Game').findById({"_id" : fullId});
+        // console.log(myGame);
+        // var myPlayers = myGame._players;
+        // var myTargets = myGame.targets;
+
+        
+        // for (var i = 0; i < myPlayers.length; i++) {
+        //     mongoose.model('User').findByIdAndUpdate( myPlayers[i], { $set: { target: myTargets[i] }}, function (err, user) {
+        //     if (err) return handleError(err);
+        //     res.send(user);
+        // });
+        // }
+
     });
 
     app.get('/gameProfile', isLoggedIn, function(req, res) {

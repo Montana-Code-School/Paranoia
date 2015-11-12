@@ -27,7 +27,7 @@ var rules = function(term) {
         '\nHow to play: Each agent will be assigned one target to eliminate, and each agent will in turn be\n'+ 
         'pursued by another player. As no one knows who else may be playing, secrecy and stealth are\n' + 
         'paramount. (To maintain a low profile, be discreet when eliminating your target, and think twice \n' + 
-        'before casually discussing the game with others.)  All games begin and end at midnight.\n\n' +  
+        'before casually discussing the game with others.)  All games begin at midnight.\n\n' +  
         'Eliminations:  When you eliminate an agent they will surrender their badge number to you. Enter\n' +
         'this number on your profile page to confirm the deed and receive your new target.  Follow the\n' + 
         'same proceedure if you are eliminated. (Note: Your badge number is assigned when you sign up.\n' + 
