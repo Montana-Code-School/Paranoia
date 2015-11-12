@@ -130,6 +130,7 @@ img.agentPicture {
 	max-width: 10px;
 	max-height: 10px;
 }
+/* Nav Bar CSS and Logo */
 nav{
 	color:red;
 	background: linear-gradient(#0B0E18, #23A00D);
@@ -139,5 +140,19 @@ nav{
 	color: ;
 	
 	font-weight: bold;
+}
+#eyeLogo {
+
+   transform-style: preserve-3d;
+}
+
+.rotate-y {
+   animation: spinY 10s infinite linear;
+}
+
+@keyframes spinY {
+   from { transform: rotateY(0); }
+   to { transform: rotateY(360deg); }
+
 }
 
