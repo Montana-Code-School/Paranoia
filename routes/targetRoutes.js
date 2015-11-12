@@ -2,10 +2,21 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: true }))
+router.use(bodyParser.urlencoded({ extended: true }));
 
 
 router.route('/:id')
+  
+  .get(function(req, res) {
+       mongoose.model('Game').findById({
+           _id: req.params.id
+       }, function(err, game) {
+           if (err)
+               res.send(err);
+
+           res.json(game.players);
+       });
+   })
 
   .post(function(req, res) {
        mongoose.model('Game').findById({
@@ -14,11 +25,11 @@ router.route('/:id')
            if (err)
                res.send(err);
            game.targets = targetsRandomized(game._players);
-           console.log(game.targets);
            game.save();
            res.redirect('/completeGame/' + game._id);
        });
    })
+  
   .put(function(req, res){
     mongoose.model('Game').findById({
       _id: req.params.id
@@ -34,6 +45,7 @@ router.route('/:id')
 
 
 var targetsRandomized = function(players){
+  console.log(newTarget);
   var refCopy = players.slice();
   var randCopy = refCopy.slice();
   var randomizedArray = [];
@@ -47,14 +59,10 @@ var targetsRandomized = function(players){
   var oneLess = randomizedArray.length;
   for (var i = 0; i < randomizedArray.length; i++) {
     var newTarget = randomizedArray[(i + 1) % oneLess];
+    console.log(newTarget);
     targets[players.indexOf(randomizedArray[i])] = newTarget;
   };
   
-
-  for (var i = 0; i < targets.length; i++) {
-    players[i].local.target = targets[i]
-  };
-
   return targets;
   
 };

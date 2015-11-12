@@ -25,6 +25,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
             
             console.log("New player named " + player + " added to game " + game.gameName);
             res.app.game = game;
+            console.log(req.params);
             res.redirect('/completeGame/' + req.params.id);
       
       // res.render('completeGame.ejs', {game : game});

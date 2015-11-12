@@ -60,7 +60,7 @@ var playerGetter = function (gameid) {
 	var list = document.getElementById("users");
 
 	$.when( 
-		$.getJSON( "/completeGame/"), 
+		// $.getJSON( "/completeGame/"), 
 		$.getJSON("/api/gamePlayer/" + gameid)
 	).then(
 
