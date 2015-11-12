@@ -38,9 +38,9 @@
 	<div class="container box">
 		<div class="row"> 
 			<div>
-				<h1><%= user.local.handle %>'s Dossier</h1>
-				<h2><strong>email</strong>: <%= user.local.email %><br></h2>	
-				<h2><strong>Tag:</strong> <%= user.local.tag %> <br></h2>
+				<h1>Penguinator's Dossier</h1>
+				<h2><strong>email</strong>: davis@gmail.com<br></h2>	
+				<h2><strong>Tag:</strong> 2323 <br></h2>
 			</div>
 		</div>
 	</div>
@@ -54,27 +54,29 @@
 			</div>
 			<div class="col-xs-4" id="imageContainer">
 				<!-- <img src="<%=user.local.pic%>" class="agentPicture"> -->
-				<img src="http://outlar.com/old_site/images/artists/GuyGerber1.jpg" class="agentPicture">
+				<img src="http://changeincorporated.org/wp-content/uploads/2013/11/happy-woman-410x290-1.jpg" class="agentPicture">
 			</div>
 
 			<div class="col-xs-4">
 				<ul>
 					<div class="container">
-					  <h2>Your target: Cobra </h2>
+					  <h2>Your target: Raptor </h2>
 					  <h3 class="confirmTagText">Enter target's tag number to confirm elimination:</h3>                                                                               
 					</div>
 					<div class="col-xs-8">
 						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag Number">
 					</div>
 					<div class="col-xs-3">
-						<a class="btn btn-success" href="./profile2.html" role="button">Submit Tag #</a>
-						<!-- <button href="../public/profile2.html" class="btn btn-success">Submit Tag #</button> -->
+						<button onclick="alertFunction()" class="btn btn-success">Submit Tag #</button>
 					</div>
+					<script type="text/javascript">
+						function alertFunction () {
+							alert("Congratulations! You're the last agent standing! You win!");
+						}
+					</script>
 					<div class="col-xs-12">
 						<br>
-						<br>
-						<br>
-						<a href="/createGame" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
+						<a href="/createGame" id="creategamebtn" class="btn btn-default"><span class="fa fa-user"></span>Create Game</a>
 					</div>
 				</ul>	
 			</div>
