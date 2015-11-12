@@ -26,7 +26,6 @@ var playerArray = function(array){
    }; 
   return myArray;
 };
-var users = playerArray(objArray);
 
 // LOOP THROUGH THE ENTIRE USERS COLLECTION AND SELECT THE HANDLES(IDS OR WHATEVER) AND SET THEM TO AN ARRAY
 // USE THE ARRAY TO ASSIGN RANDOM TARGETS AND PUSH THOSE TARGETS TO THE APPROPRIATE PLAYERS' TARGET FIELD
@@ -57,9 +56,20 @@ var randomize = function(players){
 
 var targetPutter = function(targets){
   for (var i = 0; i < players.length; i++) {
-    users[i].local.target === targets[i];
+    users[i].local.target = targets[i];
   };
 };
+
+
+// CREATE AN ARRAY OF USERS
+var users = playerArray(objArray);
+// CALL THE RANDOMIZER, PASSING IN THE USERS ARRAY
+targetArray = randomize(objArray);
+
+
+var tagCreator = function(user){
+  user.local.tag = Math.floor(Math.random()*10000);
+}
 
 
 router.route('/users')
@@ -76,7 +86,7 @@ router.route('/users')
       mongoose.model(killAttempt).update({ alive: false)};
       mongoose.model(killAttempt).update({ target: null)};
     } else {
-      res.send('Stop guessing random numbers!')
+      res.send('Stop guessing random numbers. It won\'t work!')
     }
   if (playerArray < 2 ) {
     res.send("The game is over.")
@@ -87,6 +97,3 @@ router.route('/users')
 });
 
 
-// CALL THE RANDOMIZER, PASSING IN THE NEW DATA
-
-randomize(objArray);
