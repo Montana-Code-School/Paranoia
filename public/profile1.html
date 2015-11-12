@@ -38,9 +38,9 @@
 	<div class="container box">
 		<div class="row"> 
 			<div>
-				<h1><%= user.local.handle %>'s Dossier</h1>
-				<h2><strong>email</strong>: <%= user.local.email %><br></h2>	
-				<h2><strong>Tag:</strong> <%= user.local.tag %> <br></h2>
+				<h1>Penguinator's Dossier</h1>
+				<h2><strong>email</strong>: davis@gmail.com<br></h2>	
+				<h2><strong>Tag:</strong> 2323 <br></h2>
 			</div>
 		</div>
 	</div>
@@ -67,8 +67,7 @@
 						<input id="tagGetter" type="text" class="form-control" name="tag" placeholder="Agent Tag Number">
 					</div>
 					<div class="col-xs-3">
-						<a class="btn btn-success" href="./profile2.html" role="button">Submit Tag #</a>
-						<!-- <button href="../public/profile2.html" class="btn btn-success">Submit Tag #</button> -->
+						<button type="submit" onClick="grabTag('<%= player.tag %>')" class="btn btn-success">Submit Tag #</button>
 					</div>
 					<div class="col-xs-12">
 						<br>
