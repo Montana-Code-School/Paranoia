@@ -14,7 +14,7 @@ var deleteGuy = function(gameid, guy){
 				url: "/api/gamePlayer/" + gameid,
 				type: 'DELETE',
 				dataType: 'json',
-				data: { "player": guy},
+				data: { "user": guy},
 				success: function(result) {
         			console.log('Successfully removed ' + guy);	
         			location.href = "/game/" + gameid;
@@ -117,6 +117,14 @@ var tagMaker = function(){
   return tag;
 };
 
-
+// var winningCondition = function(gameid){
+// 	var playerCount = gameid.
+// 	if  {
+// 		players === 1
+// 		alert('You stand alone as the Victor')
+// 	}else {
+// 		alert('There are other Agents still in the field');
+// 	}
+// }
 
 
