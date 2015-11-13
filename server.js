@@ -24,7 +24,15 @@ var targetRoutes = require('./routes/targetRoutes');
 
 
 // mongoose.connect('mongodb://localhost/paranoiaPlayerdb');
-mongoose.connect('mongodb://localhost/paranoiaGamedb');
+var uriUtil = require('mongodb-uri');
+
+var options = {
+  server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};  
+var mongodbUri = process.env.MONGOLAB_URI || "mongodb://localhost/paranoiaGamedb";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+mongoose.connect(mongooseUri, options)
 
  // load routes & pass in app & fully configed passport
 

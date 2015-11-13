@@ -15,6 +15,7 @@
     "method-override": "^2.3.5",
     "mongo": "^0.1.0",
     "mongo-uri": "^0.1.2",
+    "mongodb-uri": "^0.9.7",
     "mongoose": "^4.1.11",
     "morgan": "^1.6.1",
     "passport": "^0.3.0",
@@ -27,7 +28,6 @@
     "lint": "eslint . config models public/js routes || true",
     "test": "npm run lint jasmine-test",
     "jasmine-test": "tests/assassin.spec.js"
-
   },
   "license": "MIT",
   "devDependencies": {
