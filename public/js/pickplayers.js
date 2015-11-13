@@ -28,11 +28,9 @@ var deleteGuy = function(gameid, guy){
     				console.log(err)
     			}
 			});
-			}
-		};
-		
-
+		}
 	};
+};
 
 
 
@@ -41,25 +39,26 @@ var finalizeGame = function (){
 	$( ".remove-button" ).hide();
 	$( "#startButton").hide();
 
-}
-	var grabTag = function(game, playTag){
-	var arrayPlayer = game.split(',');
-	var target = playTag.split(',');
-	console.log(target);
-	console.log(arrayPlayer);
-	var inputTag = document.getElementById('tagGetter').value;
-		for(var i = 0; i < arrayPlayer.length; i++) {
-			if(arrayPlayer[i] === inputTag) {
-				var index = i;
-				target.splice(arrayPlayer[index], 1);
-				alert("target terminated");
-			} else {
-				alert('fail');
-			}
-	return target;
-	};
+};
 
-	};
+var grabTag = function(game, playTag){
+var arrayPlayer = game.split(',');
+var target = playTag.split(',');
+console.log(target);
+console.log(arrayPlayer);
+var inputTag = document.getElementById('tagGetter').value;
+	for(var i = 0; i < arrayPlayer.length; i++) {
+		if(arrayPlayer[i] === inputTag) {
+			var index = i;
+			target.splice(arrayPlayer[index], 1);
+			alert("target terminated");
+		} else {
+			alert('fail');
+		}
+return target;
+};
+
+};
 
 var allUsers = [];
 
