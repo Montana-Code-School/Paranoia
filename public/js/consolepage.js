@@ -94,9 +94,8 @@ jQuery(document).ready(function($) {
         "\nA word of warning before you agree: know that this is no ordinary game.  It is not for the\n" + 
         "faint of heart.  Paranoia rewards stealth, secrecy and cunning.  Upon admission, you will enter\n" + 
         "a clandestine world of secret agents bent on your destruction. However, as you are pursued, \n" +
-        "so shall you pursue.  Your goal is to be the last agent standing.  The thrill of the chase is\n" + 
-        "its own reward." + 
-        "\n\nTo accept the challenge and join our secret society, click the Sign Up/Sign In button below. " +
+        "so shall you pursue.  Your goal is to be the last agent standing.\n" + 
+        "\nTo accept the challenge and join our secret society, click the Sign Up/Sign In button below. " +
         "\n\nTo learn more about the game, type 'rules'. ",
         onBlur: function() {
             // prevent loosing focus
