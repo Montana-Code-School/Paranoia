@@ -141,13 +141,14 @@ nav{
 	
 	font-weight: bold;
 }
+
 #eyeLogo {
 
    transform-style: preserve-3d;
 }
 
 .rotate-y {
-   animation: spinY 10s infinite linear;
+   animation: spinY 15s infinite linear;
 }
 
 @keyframes spinY {
@@ -155,4 +156,5 @@ nav{
    to { transform: rotateY(360deg); }
 
 }
+
 
