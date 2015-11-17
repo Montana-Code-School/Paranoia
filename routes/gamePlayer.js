@@ -64,7 +64,7 @@ router.use(bodyParser.urlencoded({ extended: true }))
    .delete(function(req, res) {
 
     console.log("ENTERING DELETE FUNCTIONNNNNNNN")
-    var player = req.body._players;
+    var player = req.body.player;
 
     console.log(player + " is in this array!");
     mongoose.model('Game').findById({
