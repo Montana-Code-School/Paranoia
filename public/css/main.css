@@ -134,7 +134,7 @@ img.agentPicture {
 nav{
 	color:red;
 	background: linear-gradient(#0B0E18, #23A00D);
-
+	padding-bottom: 30px;
 }
 .nav a {
 	color: ;
